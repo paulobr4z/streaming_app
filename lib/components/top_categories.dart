@@ -46,10 +46,14 @@ class _TopCategoriesState extends State<TopCategories> {
                     children: [
                       ClipRRect(
                         child: CachedNetworkImage(
-                          color: const Color(0xFF2a2939),
                           imageUrl: topCategories[index].imageUrl.toString(),
-                          placeholder: (context, url) => const CircularProgressIndicator(),
-                          errorWidget: (context, url, error) => const Icon(Icons.error),
+                          placeholder: (context, url) {
+                            return Container(
+                              color: const Color(0xFF2a2939),
+                              width: 110,
+                              height: 146,
+                            );
+                          },
                         ),
                         borderRadius: const BorderRadius.all(Radius.circular(8)),
                       ),
